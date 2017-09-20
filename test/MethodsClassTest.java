@@ -1,6 +1,8 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -34,6 +36,17 @@ public class MethodsClassTest {
         System.out.println("Testing medium numbers");
         assertTrue(MethodsClass.containsOne(10));
         assertFalse(MethodsClass.containsOne(92));
+    }
+
+    @Rule //Another annotation directed to JUnit
+    public ExpectedException expected = ExpectedException.none();
+
+    @Test
+    public void testNegativeNumbers () throws Exception {
+        System.out.println("Testing negative values");
+        expected.expect(BadInputException.class);
+        MethodsClass.containsOne(-1);
+        MethodsClass.containsOne(-20000);
     }
 
 }
