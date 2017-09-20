@@ -22,4 +22,18 @@ public class MethodsClassTest {
         assertFalse(MethodsClass.containsOne(2));
     }
 
+    @Test
+    public void testLargeNumbers () throws Exception {
+        System.out.println("Testing large numbers");
+        assertTrue(MethodsClass.containsOne(10000002));
+        assertFalse(MethodsClass.containsOne(986974958));
+    }
+
+    @Test
+    public void testMediumNumbers () throws Exception {
+        System.out.println("Testing medium numbers");
+        assertTrue(MethodsClass.containsOne(10));
+        assertFalse(MethodsClass.containsOne(92));
+    }
+
 }
